@@ -7,7 +7,8 @@ import os
 # API Keys (set these in Railway, not here)
 ANTHROPIC_API_KEY = os.getenv("ANTHROPIC_API_KEY")
 APOLLO_API_KEY = os.getenv("APOLLO_API_KEY")
-HUBSPOT_API_KEY = os.getenv("HUBSPOT_API_KEY")
+# HUBSPOT_ACCESS_TOKEN matches the README; HUBSPOT_API_KEY kept as a fallback for existing deployments
+HUBSPOT_API_KEY = os.getenv("HUBSPOT_ACCESS_TOKEN") or os.getenv("HUBSPOT_API_KEY")
 SLACK_WEBHOOK_URL = os.getenv("SLACK_WEBHOOK_URL")
 SLACK_BOT_TOKEN = os.getenv("SLACK_BOT_TOKEN")
 SLACK_CHANNEL_ID = os.getenv("SLACK_CHANNEL_ID")

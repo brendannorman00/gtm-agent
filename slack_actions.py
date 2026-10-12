@@ -75,8 +75,8 @@ def _get_supabase():
 def verify_slack_signature(req):
     """Verify the request actually came from Slack."""
     if not SLACK_SIGNING_SECRET:
-        logger.warning("SLACK_SIGNING_SECRET not set, skipping verification")
-        return True
+        logger.error("SLACK_SIGNING_SECRET not set, rejecting request")
+        return False
 
     timestamp = req.headers.get("X-Slack-Request-Timestamp", "")
     signature = req.headers.get("X-Slack-Signature", "")
